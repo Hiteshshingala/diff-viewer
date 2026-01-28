@@ -1,0 +1,53 @@
+@import "./shared/colors.scss";
+
+details {
+  > summary {
+    cursor: pointer;
+    padding: 0.5rem 0;
+    list-style: none;
+    position: relative;
+  }
+
+  > summary::-webkit-details-marker {
+    display: none;
+  }
+
+  > summary > * {
+    display: inline;
+  }
+
+  > summary > *:before {
+    content: ' ';
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0.3125rem 0 0.3125rem 0.3125rem;
+    border-color: transparent transparent transparent $color-primary;
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    margin-top: -0.3125rem;
+    transition: all linear 0.1s;
+  }
+
+  > summary > span:after {
+    content: attr(data-closed);
+  }
+
+  &[open] > summary > *:before {
+    transform: rotate(90deg);
+  }
+
+  &[open] > summary > span:after {
+    content: attr(data-opened);
+  }
+  
+  &[open] > pre {
+    background-color: $color-grey;
+    padding: 1rem 2rem;
+    border-radius: 0.5rem;
+    text-align: left;
+    box-sizing: border-box;
+    line-height: 1.25rem;
+  }
+}

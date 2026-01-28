@@ -1,0 +1,20 @@
+@import "./shared/colors.scss";
+
+input,
+select {
+  font-family: inherit;
+  color: inherit;
+  font-size: 0.875rem;
+  outline: none;
+  width: 100%;
+  border: 1px solid $color-primary-light;
+  border-radius: 0.25rem;
+  padding: 0.25rem 0.5rem;
+}
+
+select {
+  appearance: none;
+  position: relative;
+  background: url("data:image/svg+xml;utf8,<svg fill='%232c3e50' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>") 100%/20% no-repeat;
+  padding-right: 1.5rem;
+}
