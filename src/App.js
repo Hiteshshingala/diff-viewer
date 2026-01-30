@@ -11,6 +11,7 @@ import IconButton from "@mui/material/IconButton";
 
 import "brace/mode/text";
 import "brace/theme/tomorrow";
+import "brace/theme/tomorrow_night";
 
 export default function App() {
   const diffTitle = "Diff result";
@@ -19,6 +20,7 @@ export default function App() {
   const [changedText, setChangedText] = useState("");
   const [outputFormat, setOutputFormat] = useState("side-by-side");
   const [showDiff, setShowDiff] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(false);
 
   const readFileContent = (file, setValue) => {
     const reader = new FileReader();
@@ -58,7 +60,12 @@ export default function App() {
   };
 
   return (
-    <div className="App">
+    <div className={`App ${isDarkMode ? "dark" : "light"}`}>
+      <div className="theme-toggle">
+        <button onClick={() => setIsDarkMode(!isDarkMode)}>
+          {isDarkMode ? "☀ Light Mode" : "🌙 Dark Mode"}
+        </button>
+      </div>
       <div className="custom-options">
         <label>
           <p>Output Format</p>
@@ -83,7 +90,7 @@ export default function App() {
           <div className="editor-header">
             <p>Original Text</p>
             <div className="editor-button">
-              <IconButton component="label">
+              <IconButton component="label"  >
                 <FolderOpenIcon />
                 <input
                   hidden
@@ -98,7 +105,7 @@ export default function App() {
 
           <AceEditor
             mode="text"
-            theme="tomorrow"
+            theme={isDarkMode ? "tomorrow_night" : "tomorrow"}
             value={originalText}
             onChange={setOriginalText}
             width="100%"
@@ -126,7 +133,7 @@ export default function App() {
 
           <AceEditor
             mode="text"
-            theme="tomorrow"
+            theme={isDarkMode ? "tomorrow_night" : "tomorrow"}
             value={changedText}
             onChange={setChangedText}
             width="100%"

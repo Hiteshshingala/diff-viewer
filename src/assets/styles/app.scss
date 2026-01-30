@@ -17,6 +17,7 @@ body {
 
 .App {
   padding: 1rem;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .App > div + div {
@@ -87,6 +88,8 @@ body {
 .diff-result {
   margin-left: 10%;
   margin-right: 10%;
+  height: 50vh;
+  overflow: scroll;
 }
 
 .editor-header {
@@ -97,7 +100,6 @@ body {
   padding: 6px 10px;
   border-bottom: 1px solid #ddd;
 }
-
 
 .upload-icon {
   cursor: pointer;
@@ -114,7 +116,6 @@ body {
   font-size: medium;
 }
 
-
 .clear-btn {
   padding: 6px 14px;
   border: 1px solid #ccc;
@@ -125,5 +126,128 @@ body {
 
   &:hover {
     background: #e0e0e0;
+  }
+}
+
+.d2h-code-side-linenumber {
+  position: sticky !important;
+}
+
+/* Toggle Button */
+.theme-toggle {
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px;
+
+  button {
+    padding: 6px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    border: none;
+    background: #2563eb;
+    color: #fff;
+  }
+}
+
+/* ---------- LIGHT MODE ---------- */
+.App.light {
+  background: #f7f7f7;
+  color: #1e1e1e;
+
+  /* Editor Header */
+  .editor-header {
+    background: #ffffff;
+    color: #1e1e1e;
+    border-bottom: 1px solid #ddd;
+  }
+
+  /* Editor Button */
+  .editor-button {
+    button,
+    svg,
+    p {
+      color: #333;
+    }
+  }
+
+  /* Diff Result */
+  .diff-result {
+    background: #ffffff;
+    color: #1e1e1e;
+  }
+
+  /* Diff2Html overrides */
+  .d2h-wrapper {
+    background: #ffffff;
+  }
+
+  .d2h-file-header {
+    background: #f1f1f1;
+    color: #1e1e1e;
+  }
+
+  .d2h-code-line {
+    background: #ffffff;
+  }
+}
+
+/* ---------- DARK MODE ---------- */
+.App.dark {
+  background: #0d1117;
+  color: #c9d1d9;
+
+  /* Editor Header */
+  .editor-header {
+    background: #161b22;
+    color: #c9d1d9;
+    border-bottom: 1px solid #30363d;
+  }
+
+  /* Editor Button */
+  .editor-button {
+    button,
+    svg,
+    p {
+      color: #c9d1d9;
+    }
+  }
+
+  /* Diff Result */
+  .diff-result {
+    background: #0d1117;
+    color: #c9d1d9;
+  }
+
+  /* Diff2Html overrides */
+  .d2h-wrapper {
+    background: #0d1117;
+  }
+
+  .d2h-file-header {
+    background: #161b22;
+    color: #c9d1d9;
+    border-bottom: 1px solid #30363d;
+  }
+
+  .d2h-code-line {
+    background: #0d1117;
+  }
+
+  .d2h-del {
+    background: rgba(248, 81, 73, 0.15);
+  }
+
+  .d2h-ins {
+    background: rgba(63, 185, 80, 0.15);
+  }
+
+  .d2h-code-side-linenumber {
+    background: #0d1117;
+    color: #ccc;
+  }
+
+  .d2h-info {
+    background: rgba(56, 139, 253, 0.15);
+    color: #ccc;
   }
 }
